@@ -10,10 +10,11 @@ router.get('/', function(req, res, next) {
   (async function mongo(){
       let client;
       try{
-          client = await MongoClient.connect(URL);
+          client = await MongoClient.connect(URL,{useUnifiedTopology: true});
           const db = client.db(dbName);
           const response = await db.collection('books').find().toArray();
-          res.json(response);
+          res.render('index', {books:response})
+          //res.json(response);
       } catch(err){
           console.log(err);
       }
