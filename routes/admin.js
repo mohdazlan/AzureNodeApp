@@ -83,7 +83,8 @@ const books = [
 ];
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    const URL = "mongodb://library-database:T3S3umzSOwDZjrPcq7tS99DwrfBbmIEyktSiQYsiEdPr5Noahzq3JC3arUNZ2JsXsNo5ythzPd9n2jfcqt9XyQ==@library-database.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@library-database@&retrywrites=false";
+    //const URL = "mongodb://library-database:T3S3umzSOwDZjrPcq7tS99DwrfBbmIEyktSiQYsiEdPr5Noahzq3JC3arUNZ2JsXsNo5ythzPd9n2jfcqt9XyQ==@library-database.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@library-database@&retrywrites=false";
+    const URL = process.env.URL;
     const dbName = 'Library';
     (async function mongo(){
         let client;
